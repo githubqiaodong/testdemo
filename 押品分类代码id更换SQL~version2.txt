@@ -1,0 +1,32 @@
+-- 押品分类代码id更换SQL（押品基本信息表：LOAN.GRT_BASIC_INFO）
+
+
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240390346113024'  where  guan_item_type='2310';    -- 商业汇票 / 商业承兑汇票
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392262909952'  where  guan_item_type='2203';    -- 船舶 / 货运
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392074166272'  where  guan_item_type='2204';    -- 机器设备 / 通用设备
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240391415660544'  where  guan_item_type='2206';    -- 土地使用权 / 商业用地
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240391847673856'  where  guan_item_type='2207';    -- 存货 / 交易所交易的商品
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240389716967424'  where  guan_item_type='2301';    -- 存单 / 他行本币存单
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240390438387712'  where  guan_item_type='2302';    -- 股权 / 上市公司流通股
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240389880545280'  where  guan_item_type='2303';    -- 债券 / 凭证式国债(纸质)
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240391969308672'  where  guan_item_type='2306';    -- 提单 / 其他提单
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240391151419392'  where  guan_item_type='220102';  -- 商用房 / 商业用房
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240391000424450'  where  guan_item_type='220101';  -- 住宅 / 普通用房
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240391000424448'  where  guan_item_type='220103';  -- 按揭住宅 / 经济适用住房、保障房、安置房
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392145469440'  where  guan_item_type='220201';  -- 非营运类汽车 / 家用车辆
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392166440960'  where  guan_item_type='220202';  -- 客货营运类汽车 / 营运车辆
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392183218176'  where  guan_item_type='220203';  -- 工程机械汽车类 / 工矿车辆
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392501985280'  where  guan_item_type='2205';    -- 在建工程 / 设施类在建工程
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392598454272'  where  guan_item_type='2208';    -- 其它抵押资产 / 其他抵押品
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240390505496576'  where  guan_item_type='2304';    -- 保单信息 / 具有现金价值的人寿保险单（只有这一个）
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240391927365632'  where  guan_item_type='2305';    -- 仓单信息 / 标准仓单
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240390560022528'  where  guan_item_type='2307';    -- 应收帐款 / 应收账款
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392418099200'  where  guan_item_type='2209';    -- 矿山开采权 / 采矿权
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392539734016'  where  guan_item_type='2309';    -- 出口退税帐户 / 出口退税账户
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392577482752'  where  guan_item_type='2311';    -- 其它质押资产 / 其他质押品
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240391151419392'  where  guan_item_type='220104';  -- 按揭商用房 / 商业用房
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392439070720'  where  guan_item_type='2314';    -- 其他权利资产 / 其他经营权
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240384398589952'  where  guan_item_type='2312';    -- 外汇资产 / 外汇配套人民币贷款（带外汇的只有这一个）
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392577482752'  where  guan_item_type='2313';    -- 质押动产 / 其他质押品
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240392233549824'  where  guan_item_type='2210';    -- 铁路线 / 其他交通工具
+update  LOAN.GRT_BASIC_INFO set guan_item_type='20436240390392250368'  where  guan_item_type='2308';    -- 资金帐户 /现金/保证金

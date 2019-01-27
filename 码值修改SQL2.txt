@@ -1,0 +1,145 @@
+-- 01客户信息表码值转换
+-- 客户类型
+update  cus_base_info set cust_type='22' where cust_type in ('0','3');
+-- 证件类型
+update  cus_base_info set cert_type='03' where cert_type in('1','0');
+update  cus_base_info set cert_type='01' where cert_type='5';
+-- 国别
+update  cus_base_info set cust_country='CHN' where cust_country='CHN';
+-- 隶属关系
+update  cus_ent set ent_member_rel='1' where ent_member_rel='1';
+update  cus_ent set ent_member_rel='2' where ent_member_rel='2';
+update  cus_ent set ent_member_rel='3' where ent_member_rel='3';
+update  cus_ent set ent_member_rel='4' where ent_member_rel='4';
+update  cus_ent set ent_member_rel='7' where ent_member_rel='5';
+-- 企业规模  特大0  改  无需划型9
+update  cus_ent set ent_scale='9' where ent_scale='0';
+update  cus_ent set ent_scale='2' where ent_scale='1';
+update  cus_ent set ent_scale='3' where ent_scale='2';
+update  cus_ent set ent_scale='4' where ent_scale='3';
+update  cus_ent set ent_scale='5' where ent_scale='5';
+-- 注册资本/开办资金币种 reg_capi_ccy_type
+update  cus_ent set reg_capi_ccy_type='CNY' where reg_capi_ccy_type='01';
+update  cus_ent set reg_capi_ccy_type='HKD' where reg_capi_ccy_type='13';
+update  cus_ent set reg_capi_ccy_type='USD' where reg_capi_ccy_type='14';
+-- 企业性质  ent_nature  国有控股2 改 股份有限公司102  集体控股4  改  集体公司111  私营有限公司7 改  有限责任公司101  中外合资9 改 外商合资经营企业703  其他有好几个这里用112
+update  cus_ent set ent_nature='200' where ent_nature='1';
+update  cus_ent set ent_nature='704' where ent_nature='11';
+update  cus_ent set ent_nature='600' where ent_nature='12';
+update  cus_ent set ent_nature='600' where ent_nature='13';
+update  cus_ent set ent_nature='103' where ent_nature='16';
+update  cus_ent set ent_nature='102' where ent_nature='2';
+update  cus_ent set ent_nature='107' where ent_nature='3';
+update  cus_ent set ent_nature='111' where ent_nature='4';
+update  cus_ent set ent_nature='102' where ent_nature='5';
+update  cus_ent set ent_nature='101' where ent_nature='7';
+update  cus_ent set ent_nature='105' where ent_nature='8';
+update  cus_ent set ent_nature='703' where ent_nature='9';
+update  cus_ent set ent_nature='112' where ent_nature='99';
+
+
+-- 02评级信息表码值转换 ccg_apply  没有
+
+
+-- 03额度信息/授信台账表  lmt_sub_agreement
+-- 协议类型
+update  lmt_sub_agreement set sub_type='01' where sub_type='1';
+
+
+-- 04一般合同信息  ctr_loan_contract
+-- 业务类型biz_type？？？？？？？？？？？？？？？？？？？？？？？？？
+update  ctr_loan_contract set biz_type='01' where biz_type='1';
+update  ctr_loan_contract set biz_type='01' where biz_type='3';
+-- 担保方式  grt_type
+update  ctr_loan_contract set grt_type='30' where grt_type='210';
+update  ctr_loan_contract set grt_type='10' where grt_type='22';
+update  ctr_loan_contract set grt_type='20' where grt_type='23';
+
+
+-- 04一般合同信息 关联表
+-- 还款方式  ctr_loan_sub_contract  repay_mode
+update  ctr_loan_sub_contract set repay_mode='09' where repay_mode='0';
+
+
+
+-- 05担保合同信息  grt_guar_cont
+-- 担保方式
+update  grt_guar_cont set grt_type='10' where grt_type='22';
+update  grt_guar_cont set grt_type='20' where grt_type='23';
+
+
+
+-- 06押品信息 grt_basic_info 没有提供
+-- 抵押物类型有数据没有行方码值
+
+
+
+-- 07保函合同信息  ctr_biz_grt_letter  
+-- 证件类型 cert_type
+-- update  ctr_biz_grt_letter set cert_type='03' where cert_type='0';
+-- update  ctr_biz_grt_letter set cert_type='01' where cert_type='5';
+-- 担保方式  grt_type
+-- update  ctr_biz_grt_letter set grt_type='20' where grt_type='23';
+-- 保函种类没有行方码值
+
+
+
+-- 08贷款信息表  fac_loan_duebill  
+-- 还款方式字段 repay_mode
+update  fac_loan_duebill set repay_mode='09' where repay_mode='0';
+-- 担保方式字段 grt_type
+update  fac_loan_duebill set grt_type='40' where grt_type='100';
+update  fac_loan_duebill set grt_type='30' where grt_type='210';
+update  fac_loan_duebill set grt_type='10' where grt_type='22';
+update  fac_loan_duebill set grt_type='20' where grt_type='23';
+-- 风险分类字段  risk_classify
+update  fac_loan_duebill set risk_classify='10' where risk_classify='11';
+-- 币种 ccy
+update  fac_loan_duebill set ccy='CNY' where ccy='01';
+-- 贷款形态没有行方码值
+
+
+-- 10风险分类  pls_risk_class_adjust
+-- 担保方式  grt_type
+update  pls_risk_class_adjust set grt_type='40' where grt_type='100';
+update  pls_risk_class_adjust set grt_type='30' where grt_type='210';
+update  pls_risk_class_adjust set grt_type='10' where grt_type='22';
+update  pls_risk_class_adjust set grt_type='20' where grt_type='23';
+
+
+
+
+-- 把他们的码值改成我们的码值
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

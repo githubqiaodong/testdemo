@@ -1,0 +1,83 @@
+-- 更新利率（张仲博）
+update fac_loan_duebill set base_rate=base_rate/100, actual_rate = actual_rate/100;
+
+-- 管户经理 cust_mgr 管户机构 cust_org 客户编号 cust_no 机构编号 org_id
+-- 创建人 create_user 创建机构 create_org 更新人员 update_user 更新机构 update_org
+ 
+-- 客户信息:cus_ent,  cus_base_info
+-- 额度授信：lmt_sub_agreement，lmt_ent_agreement
+-- 合同主表  ctr_loan_contract
+
+-- 合同从表  ctr_loan_sub_contract
+
+-- 担保合同  grt_guar_cont
+-- 押品信息 grt_basic_info
+-- 贷后台账：fac_loan_duebill
+-- 保函信息：biz_grt_letter
+
+-- 对公客户基本信息表
+select * from cus_ent;
+-- 客户基本信息表
+select * from cus_base_info;
+-- 用户表
+select org_id from sys_user where user_name ='' 
+
+
+select * from sys_user  where user_name = '17033369'
+select cust_mgr from cus_base_info
+-- 不行
+ update cus_base_info a set a.cust_org=(select org_id from sys_user where user_name =a.cust_mgr)
+ 
+ 
+ select * from lmt_sub_agreement;
+ update lmt_sub_agreement  a set a.create_user =(select create_user from cus_base_info b where a.cust_no =b.cust_no)
+ 
+  update lmt_sub_agreement  a set a.update_user =(select create_user from cus_base_info b where a.cust_no =b.cust_no)
+	
+	         select * from ctr_loan_contract where cust_no = 'K0010010000046'
+	         select * from cus_base_info where cust_no = 'K0010010000046'
+					 
+					 select * from ctr_loan_contract where cust_mgr = '17051126'
+					 select * from cus_base_info where cust_mgr = '17051126'
+-- 没有
+select * from ctr_loan_contract;
+		update  ctr_loan_contract  a set a.apply_no=a.cont_no;
+	
+	  update ctr_loan_contract  a set a.create_user =(select create_user from cus_base_info b where a.cust_no =b.cust_no);
+		update ctr_loan_contract  a set a.update_user =(select create_user from cus_base_info b where a.cust_no =b.cust_no);
+		update ctr_loan_contract  a set a.cust_mgr =(select create_user from cus_base_info b where a.cust_no =b.cust_no);
+		update ctr_loan_contract  a set a.cust_org =(select org_id from sys_user where user_name =a.cust_mgr);
+ 
+
+-- 担保合同客户编号没值
+select * from grt_guar_cont; 
+ 
+ 	  update grt_guar_cont  a set a.update_user =(select create_user from cus_base_info b where a.cust_no =b.cust_no);
+		update grt_guar_cont  a set a.create_user =(select create_user from cus_base_info b where a.cust_no =b.cust_no);
+		update grt_guar_cont  a set a.cust_mgr =(select create_user from cus_base_info b where a.cust_no =b.cust_no);
+		update grt_guar_cont  a set a.cust_org =(select org_id from sys_user where user_name =a.cust_mgr);
+
+
+
+-- 押品信息
+select * from grt_basic_info
+select * from grt_guar_cont
+
+   update grt_basic_info  a set a.update_user =(select create_user from grt_guar_cont b where a.guaranty_no =b.grt_cont_no);
+		update grt_basic_info  a set a.create_user =(select create_user from grt_guar_cont b where a.guaranty_no =b.grt_cont_no);
+
+
+-- 贷后台账
+	select * from fac_loan_duebill
+	
+update fac_loan_duebill  a set a.update_user =(select create_user from cus_base_info b where a.cust_no =b.cust_no);
+		update fac_loan_duebill  a set a.create_user =(select create_user from cus_base_info b where a.cust_no =b.cust_no);
+		update fac_loan_duebill  a set a.cust_mgr =(select create_user from cus_base_info b where a.cust_no =b.cust_no);
+		update fac_loan_duebill  a set a.cust_org =(select org_id from sys_user where user_name =a.cust_mgr);
+
+ 
+
+ 
+ 
+ 
+ 
